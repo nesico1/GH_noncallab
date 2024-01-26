@@ -1,2 +1,3 @@
 # GH_noncallab
-reporsitory for assignment 2
+repository for assignment 2
+

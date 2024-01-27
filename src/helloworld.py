@@ -1,6 +1,10 @@
+def hello_world(city):
+    print(f'Hello World from {city}')
+
 def main():
-    print("Hello World!")
+    hello_world('NYC')
 
 if __name__ == "__main__":
     main()
-    
+
+print("GitHub Actions")

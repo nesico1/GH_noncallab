@@ -1,0 +1,411 @@
+冒泡排序
+
+def bubble_sort(data):
+    n = len(data)
+    for i in range(n-1):  # 需要进行n-1轮比较
+        for j in range(n-i-1):  # 每一轮比较的次数递减
+            if data[j] > data[j+1]:  # 如果前一个元素大于后一个元素
+                data[j], data[j+1] = data[j+1], data[j]  # 交换元素位置
+    return data
+data = [
+    {"name": "玩家tyuj", "score": 2689},
+    {"name": "玩家jhgf", "score": 2365},
+    {"name": "玩家43w", "score": 2567},
+    {"name": "玩家56yjm", "score": 2567},
+    {"name": "玩家jhgf", "score": 2488},
+    {"name": "玩家erf", "score": 2978},
+    {"name": "玩家hgtre", "score": 2978},
+    {"name": "玩家hgr", "score": 2500},
+    {"name": "玩家erh", "score": 2508},
+    {"name": "玩家hgfr", "score": 2506},
+    {"name": "玩家kjh", "score": 2505},
+    {"name": "玩家kijuyt", "score": 2504},
+    {"name": "玩家wet", "score": 2503},
+    {"name": "玩家juytr", "score": 2503},
+    {"name": "玩家jytr", "score": 2502},
+    {"name": "玩家Cjhg", "score": 2501},
+    {"name": "玩家Cjhgf", "score": 2200},
+    {"name": "玩家C,kj", "score": 2300},
+    {"name": "玩家Cjhy", "score": 2100},
+    {"name": "玩家Cjhgt", "score": 2100},
+    {"name": "玩家C34", "score": 3200},
+    {"name": "玩家C34t5yj", "score": 3446},
+    {"name": "玩家Crgt", "score": 2503},
+    {"name": "玩家Cr4t", "score": 1466},
+    {"name": "玩家Cwrt", "score": 1678},
+    {"name": "玩家Cwrtt", "score": 2477},
+    {"name": "玩家C3t", "score": 2676},
+    {"name": "玩家C3wreth", "score": 3798},
+    {"name": "玩家Cjyngf", "score": 2698},
+    {"name": "玩家Ctyg", "score": 2797},
+    {"name": "玩家Chygf", "score": 1456},
+    {"name": "玩家Cert", "score": 1867},
+    {"name": "玩家Cjhg", "score": 2765},
+    {"name": "玩家Cewr", "score": 1789},
+    {"name": "玩家Cmjhgf", "score": 1689},
+    {"name": "玩家Chg", "score": 1567},
+    {"name": "玩家Cwert", "score": 1457},
+    {"name": "玩家Ctygh", "score": 1686},
+    {"name": "玩家Cewrgth", "score": 1356},
+    {"name": "玩家Cmjhg", "score": 1789},
+    {"name": "玩家Chgrfe", "score": 3566},
+    {"name": "玩家Cnhgf", "score": 1666},
+    {"name": "玩家Cr4t", "score": 2567},
+    {"name": "玩家Cmjhtgre", "score": 1567},
+    {"name": "玩家Cwregth", "score": 1778},
+    {"name": "玩家Cmjythgf", "score": 3677},
+    {"name": "玩家Ctgr", "score": 2677},
+    {"name": "玩家Cyjtrg", "score": 1688},
+    {"name": "玩家C3w4", "score": 2456},
+    {"name": "玩家Cwegth", "score": 1777},
+    {"name": "玩家Cmhg", "score": 1677},
+    {"name": "玩家Cnhgf", "score": 1890},
+    {"name": "玩家Cmnhgt", "score": 2344}, 
+    {"name": "玩家X", "score": 2600},
+    {"name": "玩家AZ", "score": 3300},
+    {"name": "玩家AZ", "score": 3300},
+    # 使用冒泡排序算法对数据进行排序
+sorted_data = bubble_sort(data)
+
+# 输出排序后的结果
+for player in sorted_data:
+    print(f"玩家: {player['name']}，分数: {player['score']}")
+
+
+插入排序
+    def insertion_sort(data):
+    for i in range(1, len(data)):
+        key = data[i]
+        j = i - 1
+        while j >= 0 and data[j]["score"] > key["score"]:
+            data[j + 1] = data[j]
+            j -= 1
+        data[j + 1] = key
+    return data
+data=......
+
+# 使用插入排序算法对数据进行排序
+sorted_data = insertion_sort(data)
+
+# 输出排序后的结果
+for player in sorted_data:
+    print(f"玩家: {player['name']}，分数: {player['score']}")
+
+
+    归并排序
+
+    def merge_sort(data):
+    if len(data) <= 1:
+        return data
+    
+    mid = len(data) // 2
+    left_half = data[:mid]
+    right_half = data[mid:]
+    
+    left_half = merge_sort(left_half)
+    right_half = merge_sort(right_half)
+    
+    return merge(left_half, right_half)
+
+def merge(left, right):
+    merged = []
+    i = j = 0
+    
+    while i < len(left) and j < len(right):
+        if left[i]['score'] <= right[j]['score']:
+            merged.append(left[i])
+            i += 1
+        else:
+            merged.append(right[j])
+            j += 1
+    
+    while i < len(left):
+        merged.append(left[i])
+        i += 1
+    
+    while j < len(right):
+        merged.append(right[j])
+        j += 1
+    
+    return merged
+
+    data=..
+    # 使用归并排序算法对数据进行排序
+sorted_data = merge_sort(data)
+
+# 输出排序后的结果
+for player in sorted_data:
+    print(f"玩家: {player['name']}，分数: {player['score']}")
+
+
+
+    堆排序
+# 堆排序函数
+def heap_sort(arr):
+    n = len(arr)
+
+    # 构建最大堆
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+    # 逐个将堆顶元素（最大值）移到末尾
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # 交换堆顶和最后一个元素
+        heapify(arr, i, 0)
+
+# 调整堆
+def heapify(arr, n, i):
+    largest = i  # 初始化最大值为根节点
+    left = 2*i + 1
+    right = 2*i + 2
+
+    # 如果左子节点大于根节点，则更新最大值索引
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+
+    # 如果右子节点大于当前最大值，则更新最大值索引
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+
+    # 如果最大值不是根节点，则交换之后递归调整堆
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+# 测试数据
+data = [
+    3798, 3446, 3300, 3300, 3677, 1789, 3566, 2978, 2978, 3200,
+    2600, 2698, 2689, 2600, 2488, 2500, 2508, 2506, 2505, 2504,
+    2503, 2503, 2502, 2365, 2567, 2567, 2365, 2501, 2300, 2200,
+    2100, 2100, 2477, 2676, 2503, 2765, 1867, 1678, 2765, 2797,
+    1456, 2765, 1789, 1689, 1567, 1457, 1686, 1356, 1789, 2567,
+    1567, 1778, 3677, 2677, 1688, 2456, 1777, 1677, 1890, 2344,
+    3566, 1666
+]
+
+# 调用堆排序函数对数据进行排序
+heap_sort(data)
+
+# 打印排序后的数据
+for score in data:
+    print(score)
+
+
+    时间测试
+
+    堆排序import time
+
+# 堆排序函数
+def heap_sort(arr):
+    n = len(arr)
+
+    # 构建最大堆
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+    # 逐个将堆顶元素（最大值）移到末尾
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # 交换堆顶和最后一个元素
+        heapify(arr, i, 0)
+
+# 调整堆
+def heapify(arr, n, i):
+    largest = i  # 初始化最大值为根节点
+    left = 2*i + 1
+    right = 2*i + 2
+
+    # 如果左子节点大于根节点，则更新最大值索引
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+
+    # 如果右子节点大于当前最大值，则更新最大值索引
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+
+    # 如果最大值不是根节点，则交换之后递归调整堆
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+# 测试数据
+data = [
+    3798, 3446, 3300, 3300, 3677, 1789, 3566, 2978, 2978, 3200,
+    2600, 2698, 2689, 2600, 2488, 2500, 2508, 2506, 2505, 2504,
+    2503, 2503, 2502, 2365, 2567, 2567, 2365, 2501, 2300, 2200,
+    2100, 2100, 2477, 2676, 2503, 2765, 1867, 1678, 2765, 2797,
+    1456, 2765, 1789, 1689, 1567, 1457, 1686, 1356, 1789, 2567,
+    1567, 1778, 3677, 2677, 1688, 2456, 1777, 1677, 1890, 2344,
+    3566, 1666
+]
+
+start_time = time.time()  # 记录开始时间
+
+# 调用堆排序函数对数据进行排序
+heap_sort(data)
+
+end_time = time.time()  # 记录结束时间
+execution_time = end_time - start_time  # 计算执行时间
+
+# 打印排序后的数据和执行时间
+for score in data:
+    print(score)
+
+print("执行时间：", execution_time, "秒")
+
+交换次数
+
+import time
+
+# 堆排序函数
+def heap_sort(arr):
+    n = len(arr)
+    swap_count = 0  # 记录交换次数
+
+    # 构建最大堆
+    for i in range(n // 2 - 1, -1, -1):
+        swap_count += heapify(arr, n, i)
+
+    # 逐个将堆顶元素（最大值）移到末尾
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # 交换堆顶和最后一个元素
+        swap_count += 1  # 交换次数加1
+        swap_count += heapify(arr, i, 0)
+
+    return swap_count
+
+# 调整堆，并返回交换次数
+def heapify(arr, n, i):
+    swap_count = 0  # 记录交换次数
+    largest = i  # 初始化最大值为根节点
+    left = 2 * i + 1
+    right = 2 * i + 2
+
+    # 如果左子节点大于根节点，则更新最大值索引
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+
+    # 如果右子节点大于当前最大值，则更新最大值索引
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+
+    # 如果最大值不是根节点，则交换之后递归调整堆
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        swap_count += 1  # 交换次数加1
+        swap_count += heapify(arr, n, largest)
+
+    return swap_count
+
+# 测试数据
+data=....
+swap_count = heap_sort(data)
+
+# 打印排序后的数据和交换次数
+print("排序后的数据：", data)
+print("交换次数：", swap_count)
+
+
+插入排序时间
+import time
+
+def insertionSort(arr, key=None):
+    n = len(arr)
+    start_time = time.perf_counter()
+    
+    for i in range(1, n):
+        current_value = arr[i]
+        j = i - 1
+        
+        while j >= 0 and (key is None or key(arr[j]) > key(current_value)):
+            arr[j + 1] = arr[j]
+            j -= 1
+        
+        arr[j + 1] = current_value
+    
+    end_time = time.perf_counter()
+    execution_time = end_time - start_time
+    
+    return execution_time
+
+data=...
+
+# 使用插入排序并计算所需的时间
+time_taken = insertionSort(data, key=lambda x: x["score"])
+print("插入排序所用时间为:", time_taken, "秒")
+
+
+
+白盒测试
+import random
+
+def test_heap_sort():
+    # 空数组测试
+    arr = []
+    result = heap_sort(arr)
+    assert result == [], "空数组测试失败"
+
+    # 单个元素数组测试
+    arr = [5]
+    result = heap_sort(arr)
+    assert result == [5], "单个元素数组测试失败"
+
+    # 有序数组测试
+    arr = [1, 2, 3, 4, 5]
+    result = heap_sort(arr)
+    assert result == [1, 2, 3, 4, 5], "有序数组测试失败"
+
+    # 逆序数组测试
+    arr = [5, 4, 3, 2, 1]
+    result = heap_sort(arr)
+    assert result == [1, 2, 3, 4, 5], "逆序数组测试失败"
+
+    # 随机数组测试
+    arr = random.sample(range(100), 10)
+    result = heap_sort(arr)
+    assert result == sorted(arr), "随机数组测试失败"
+
+    # 重复元素测试
+    arr = [3, 2, 5, 3, 1]
+    result = heap_sort(arr)
+    assert result == [1, 2, 3, 3, 5], "重复元素测试失败"
+
+    # 边界情况测试
+    arr = [2, 1, 'a', 3.5]
+    try:
+        result = heap_sort(arr)
+        assert False, "边界情况测试失败"
+    except TypeError:
+        pass
+
+    print("所有白盒测试通过。")
+
+def heap_sort(arr):
+    n = len(arr)
+    
+    # 构建最大堆
+    for i in range(n//2 - 1, -1, -1):
+        heapify(arr, n, i)
+    
+    # 逐个将最大元素移到数组末尾
+    for i in range(n-1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # 交换根节点和最后一个节点
+        heapify(arr, i, 0)
+    
+    return arr
+
+def heapify(arr, n, i):
+    largest = i
+    left = 2*i + 1
+    right = 2*i + 2
+    
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+    
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+    
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]  # 交换节点
+        heapify(arr, n, largest)
+
+test_heap_sort()
